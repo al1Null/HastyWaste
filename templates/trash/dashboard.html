@@ -1,0 +1,229 @@
+{% extends 'trash/base.html' %}
+
+{% block body_block %}
+
+<div class="dashboard-container">
+    <div class="separator"><br></div>
+    <div class="separator"><br></div>
+    <div class="separator"><br></div>
+    <h3 class="white-text center-align">Welcome, {{ user.username }} to your Dashboard</h3>
+    <div class="hoverable z-depth-5 location-information" style="border-radius: 20px;">
+        <p style="color: black;">Facility Name: Tesla Gigafactory</p>
+        <p style="color: black;">Address: 45500 Fremont Boulevard, Fremont, CA 94538</p>
+        <p style="color: black;">Number of Bins: 5</p>
+    </div>
+</div>
+
+<br><br>
+
+<div class="row">
+    <div class="col s12 center-align">
+        <img id="blueprint" styles="height: 400px;" src="https://cdn.discordapp.com/attachments/611787853365510146/630455797280931840/newMap.png" alt="">
+    </div>
+</div>
+
+<!-- Collapsible -->
+<div class="row">
+    <div class="col s12">
+        <ul class="collapsible">
+          <li>
+            <div class="collapsible-header"><i class="material-icons" style="font-size: 40px; color: green;">restore_from_trash</i><strong>Bin 01</strong></div>
+            <div class="collapsible-body">
+                <span>
+                    <div class="row">
+                        <div class="col s12">
+                            <span styles="font-size: 14px;">Bin Serial ID: <em><strong>004586943</strong></em></span>
+                        </div>
+                        <div class="col s12">
+                            <div class="left-align">
+                                <span>Next Collection: Oct 6th 8:00pm<span>
+                            </div>
+                            <div class="right-align">
+                                <span>Last Collection: Oct 5th 6:00pm</span>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            <span>Percent Full: {{ bin01.current_filled }}%</span>
+                            <div class="progress">
+                                <div class="determinate" style="width: {{ bin01.current_filled }}%"></div>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            {% if bin01.has_leak %}
+                                <i style="color: red;font-size; 32px; position: relative; right: 8px; top: 6px;"class="material-icons">warning</i>
+                                <span style="color: red; font-weight: bold;">Maintenance</span>
+                                <ul>&nbsp;&nbsp;&#8226;&nbsp;&nbsp;Maintenance Needed!</ul>
+                                <ul>&nbsp;&nbsp;&#8226;&nbsp;&nbsp;Comment: Full</ul>
+                            {% else %}
+                                <span style="color: red; font-weight: bold;">Maintenance</span>
+                                <ul>&nbsp;&nbsp;&#8226;&nbsp;&nbsp;No Maintenance</ul>
+                            {% endif %}
+
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            <span><a href="{% url 'history' %}" target="_blank">View History</a></span>
+                        </div>
+                    </div>
+                </span>
+            </div>
+          </li>
+          <li>
+              <div class="collapsible-header"><img style="color: red; width: 32px; height: 32px; position: relative; right: 6px; margin-left: 8px;" src="https://cdn.discordapp.com/attachments/611787853365510146/630404588490719243/27872.png" alt=""><strong>&nbsp;Bin 02</strong></div>
+              <div class="collapsible-body"
+                  <span>
+                      <div class="row">
+                          <div class="col s12">
+                              <span styles="font-size: 14px;">Bin Serial ID: <em><strong>000345892</strong></em></span>
+                          </div>
+                          <div class="col s12">
+                              <div class="left-align">
+                                  <span>Next Collection: Oct 3rd 2:00pm<span>
+                              </div>
+                              <div class="right-align">
+                                  <span>Last Collection: Oct 2nd 2:00pm</span>
+                              </div>
+                          </div>
+                          <div class="col s12">
+                              <br>
+                              <span>Percent Full: 100%</span>
+                              <div class="progress">
+                                  <div class="determinate" style="width: 100%"></div>
+                              </div>
+                          </div>
+                          <div class="col s12">
+                              <br>
+                              <i style="color: red;font-size; 32px; position: relative; right: 8px; top: 6px;"class="material-icons">warning</i>
+                              <span style="color: red; font-weight: bold;">Maintenance</span>
+                              <ul>&nbsp;&nbsp;&#8226;&nbsp;&nbsp;Maintenance Needed!</ul>
+                              <ul>&nbsp;&nbsp;&#8226;&nbsp;&nbsp;Comment: Full</ul>
+                          </div>
+                          <div class="col s12">
+                              <br>
+                              <span><a href="{% url 'history' %}" target="_blank">View History</a></span>
+                          </div>
+                      </div>
+                  </span>
+              </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons" style="font-size: 40px; color: green;">restore_from_trash</i><strong>Bin 03</strong></div>
+            <div class="collapsible-body">
+                <span>
+                    <div class="row">
+                        <div class="col s12">
+                            <span styles="font-size: 14px;">Bin Serial ID: <em><strong>003589234</strong></em></span>
+                        </div>
+                        <div class="col s12">
+                            <div class="left-align">
+                                <span>Next Collection: Sept. 30th 12:00pm<span>
+                            </div>
+                            <div class="right-align">
+                                <span>Last Collection: Sept. 23rd 10:00pm</span>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            <span>Percent Full: 79%</span>
+                            <div class="progress">
+                                <div class="determinate" style="width: 79%"></div>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            <span style="font-weight: bold;">Maintenance</span>
+                            <ul>&nbsp;&nbsp;&#8226;&nbsp;&nbsp;No Maintenance Needed</ul>
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            <span><a href="{% url 'history' %}" target="_blank">View History</a></span>
+                        </div>
+                    </div>
+                </span>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><img style="color: red; width: 52px; height: 32px; position: relative; right: 6px;" src="https://cdn.discordapp.com/attachments/611787853365510146/630401686292398120/delete-2.svg" alt=""><strong style="position: relative; right: 6px;">Bin 04</strong></div>
+            <div class="collapsible-body"
+                <span>
+                    <div class="row">
+                        <div class="col s12">
+                            <span styles="font-size: 14px;">Bin Serial ID: <em><strong>0052849245</strong></em></span>
+                        </div>
+                        <div class="col s12">
+                            <div class="left-align">
+                                <span>Next Collection: Nov 1st 8:00pm<span>
+                            </div>
+                            <div class="right-align">
+                                <span>Last Collection: Oct 6th 1:00am</span>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            <span>Percent Full: 12%</span>
+                            <div class="progress">
+                                <div class="determinate" style="width: 12%"></div>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            <i style="color: red;font-size; 32px; position: relative; right: 8px; top: 6px;"class="material-icons">warning</i>
+                            <span style="color: red; font-weight: bold;">Maintenance</span>
+                            <ul>&nbsp;&nbsp;&#8226;&nbsp;&nbsp;Maintenance Needed!</ul>
+                            <ul>&nbsp;&nbsp;&#8226;&nbsp;&nbsp;Comment: Leak</ul>
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            <span><a href="{% url 'history' %}" target="_blank">View History</a></span>
+                        </div>
+                    </div>
+                </span>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons" style="font-size: 40px; color: green;">restore_from_trash</i><strong>Bin 05</strong></div>
+            <div class="collapsible-body">
+                <span>
+                    <!-- full percent, is full, has leak, view history, bin id, next collection  -->
+                    <div class="row">
+                        <div class="col s12">
+                            <span styles="font-size: 14px;">Bin Serial ID: <em><strong>0348539872</strong></em></span>
+                        </div>
+                        <div class="col s12">
+                            <div class="left-align">
+                                <span>Next Collection: Oct 6th 3:00pm<span>
+                            </div>
+                            <div class="right-align">
+                                <span>Last Collection: Oct 4th 1:00pm</span>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            <span>Percent Full: 23%</span>
+                            <div class="progress">
+                                <div class="determinate" style="width: 23%"></div>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            <span style="font-weight: bold;">Maintenance</span>
+                            <ul>&nbsp;&nbsp;&#8226;&nbsp;&nbsp;No Maintenance Needed</ul>
+                        </div>
+                        <div class="col s12">
+                            <br>
+                            <span><a href="{% url 'history' %}" target="_blank">View History</a></span>
+                        </div>
+                    </div>
+                </span>
+            </div>
+          </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

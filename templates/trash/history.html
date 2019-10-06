@@ -1,0 +1,37 @@
+{% extends 'trash/base.html' %}
+
+
+{% block body_block %}
+<br><br><br><br>
+<div class="row">
+    <div class="col s12">
+        <table class="striped">
+          <thead>
+            <tr>
+                <th style="color: white;">Bin</th>
+                <th style="color: white;">Time</th>
+                <th style="color: white;">Next Collection Time</th>
+                <th style="color: white;">Fill Percent</th>
+                <th style="color: white;">Has Leak</th>
+                <th style="color: white;">Is Full</th>
+            </tr>
+          </thead>
+
+          <tbody>
+              {% for doc in history %}
+                <tr>
+                    <td>Bin 01</td>
+                    <td>{{ doc.current_time}}</td>
+                    <td>{{ doc.next_collection_time }}</td>
+                    <td>{{ doc.current_filled }}</td>
+                    <td>{{ doc.has_leak }}</td>
+                    <td>{{ doc.is_full }}</td>
+                </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

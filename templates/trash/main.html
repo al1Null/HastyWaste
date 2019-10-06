@@ -1,0 +1,48 @@
+{% extends 'trash/base.html' %}
+
+{% block body_block %}
+
+<div class="cd-bg-video-wrapper" data-video="video/bangkok-city"></div>
+ <!-- <iframe src="https://drive.google.com/file/d/1rR4kbS5XHjgpaN7WMwsb_F6e9qO33nvo/preview?autoplay=1" width="640" height="480"></iframe> -->
+
+<!-- Content -->
+<ul class="cd-hero-slider">
+    <!-- autoplay -->
+
+    <!-- Page 1 Home -->
+    <li class="selected">
+        <div class="cd-full-width">
+            <div class="container js-tm-page-content tm-page-1 tm-section-margin-t-small" data-page-no="1">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="tm-home-container-outer">
+                            <div class="tm-home-container">
+                                <div class="tm-home-title-container">
+                                    <h2 class="center-align tm-text-title text-xs-center tm-home-title">
+                                        Cleaner, cheaper,
+                                        and more efficient.</h2>
+                                </div>
+                                <div class="tm-home-description-container tm-bg-dark-blue">
+                                    <div class="text-xs-left tm-textbox">
+                                        <p class="tm-text tm-home-description">
+                                            Today, Hasty Waste is developing technologies that allow waste and recycling management to
+                                            minimize both environmental and time inefficiencies, benefitting the company and the consumer.
+                                        </p>
+                                        <div class="button-container">
+                                            <div class="login-button">
+                                                <a class="button-style" href="{% url 'dashboard' %}">My Dashboard</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tm-home-container-bg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .cd-full-width -->
+    </li>
+</ul> <!-- .cd-hero-slider -->
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'trash/base.html' %}
+
+{% block body_block %}
+<h1>LOGIN PAGE</h1>
+<div class="row">
+    <div class="col s12">
+        <div class="login-container">
+            <form method="POST">
+                {% csrf_token %}
+                <div> <h1 class="login-header">Login</h1> <br> </div>
+
+                {{ form.non_field_errors }}
+
+                {{ form.username.errors }}
+                <label class="username-header" for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                {{ form.username }}
+
+                {{ form.password.errors }}
+                <label class="password-header" for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                {{ form.password }}
+
+                <div>
+                    <br><br>
+                    <button class="login-submit" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
